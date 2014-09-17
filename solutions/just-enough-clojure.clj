@@ -7,3 +7,10 @@
 
 ; second implementation
 (def third (fn [list] (first (rest (rest list)))))
+
+; what the name says
+(def add-squares (fn [& args] (apply + (map * args args))))
+
+; factorial without iteration or recursion
+(def bizarre-factorial (fn [n] (apply * (range 1 (inc n)))))
+
