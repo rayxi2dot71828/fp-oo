@@ -36,3 +36,47 @@
 (def different-triangle (Triangle (Point 0 0)
                                   (Point 0 10)
                                   (Point 10 0)))
+
+
+;;;; ==========================================================
+;;; Exercise 1
+
+;;; Implement add to add two points
+;;; The first version doesn't use shift
+(def add
+  (fn [this another-point]
+    (Point
+      (+ (x this) (x another-point))
+      (+ (y this) (y another-point)))))
+
+;;; This one uses shift
+(def add-with-shift
+  (fn [this another-point]
+    (let [new-point (shift this (x another-point) (y another-point))]
+    (Point (x new-point) (y new-point)))))
+
+;;;; ==========================================================
+;;; Exercise 2
+
+;;; Implement a "new" operator
+;;; Since "new" is reserved in Clojure, we're calling it "make"
+(def make
+  (fn [constructor & args]
+    (apply constructor args)))
+
+;;;; ==========================================================
+;;; Exercise 3 & 4
+
+;;; Implement equal-triangles? to compare triangles produced by
+;;; the three factory functions above
+(def equal-triangles?
+  (fn [& triangles]
+    (apply = triangles)))
+
+;;;; ==========================================================
+;;; Exercise 5
+
+;;; Implement valid-triangle? (Just checks for dupes)
+(def valid-triangle?
+  (fn [point1 point2 point3]
+    (distinct? point1 point2 point3)))
