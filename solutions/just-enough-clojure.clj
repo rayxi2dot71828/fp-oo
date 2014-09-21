@@ -58,5 +58,16 @@
         (and true (prefix-of? (rest candidate) (rest sequence)))
         false))))
     
+;;;; ==========================================================
+;;; Exercise 7
+
+;; tails
+; user> (tails '(1 2 3 4)) 
+; ((1 2 3 4) (2 3 4) (3 4) (4) ())
+(def tails
+  (fn [seq]
+    (if (empty? seq)
+      (list seq)
+      (concat (list seq) (tails (rest seq))))))
     
 
