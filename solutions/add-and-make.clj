@@ -78,5 +78,7 @@
 
 ;;; Implement valid-triangle? (Just checks for dupes)
 (def valid-triangle?
-  (fn [point1 point2 point3]
-    (distinct? point1 point2 point3)))
+  (fn [& points]
+    (and
+      (= 3 (count points))
+      (apply distinct? points))))
