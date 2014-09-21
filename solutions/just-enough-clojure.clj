@@ -71,3 +71,8 @@
       (concat (list seq) (tails (rest seq))))))
     
 
+;;;; ==========================================================
+;;; Exercise 8
+
+;; Exercise 8 is more like answering the question. I think it happens because
+;; effectively, we're using '(1 2 3) as if it is a function.
